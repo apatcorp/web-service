@@ -28,7 +28,7 @@ public class GsonCustomerConverter {
 				// TODO Auto-generated method stub
 				return clazz == Collection.class;
 			}
-		}).setPrettyPrinting().create();
+		}).create();
 		
 		String customerAsJson= gson.toJson(customer);
 		
