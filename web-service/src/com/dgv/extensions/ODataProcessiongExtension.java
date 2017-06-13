@@ -15,7 +15,7 @@ public class ODataProcessiongExtension implements JPAEdmExtension {
 	@Override
 	public void extendWithOperation(JPAEdmSchemaView arg0) {
 		arg0.registerOperations(CustomerProcessor.class, null);
-
+		arg0.registerOperations(StatusProcessor.class, null);
 	}
 
 	@Override
