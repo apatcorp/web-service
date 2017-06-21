@@ -38,7 +38,7 @@ public class Test {
 		customer.setName("Berliner Volksbank");
 		customer.setLocation("Berlin");
 		customer.setAddress("Kurfürstendamm 112");
-		customer.setPostCode("10200");
+		customer.setPostcode("10200");
 		customer.setContactPerson("Jürgen Heiler");
 		customer.setTelNo("030 30633300");
 		

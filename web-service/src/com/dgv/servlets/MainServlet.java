@@ -44,14 +44,14 @@ public class MainServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String customerNo = request.getParameter("Request");
+		String customerId = request.getParameter("Request");
 		
 		HttpSession session = request.getSession(false);
 		
-		if (session != null && session.getAttribute("C" + customerNo) != null) {
+		if (session != null && session.getAttribute("C" + customerId) != null) {
 			
 			JsonObject jsonObject = new JsonObject();
-			jsonObject.addProperty("CustomerId", "" + session.getAttribute("C" + customerNo));
+			jsonObject.addProperty("CustomerId", "" + session.getAttribute("C" + customerId));
 				
 			response.setContentType("application/json");
 			response.getWriter().write(jsonObject.toString());

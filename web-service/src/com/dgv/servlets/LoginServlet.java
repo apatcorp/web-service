@@ -34,16 +34,16 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String customerNo = request.getParameter("Login");
 		
-		long customerId = getCustomerId(customerNo);
-		
+		long paramter = Long.parseLong(request.getParameter("Login"));
+		long customerId = getCustomerId(paramter);
+			
 		if (customerId != -1L) {
 			HttpSession session = request.getSession();
-			session.setAttribute("C" + customerNo, customerId);	
+			session.setAttribute("C" + customerId, customerId);	
 			
 			JsonObject object = new JsonObject();
-			object.addProperty("Response", customerNo);
+			object.addProperty("Response", customerId);
 			
 			response.setContentType("application/json");
 			response.getWriter().write(object.toString());
@@ -56,11 +56,11 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 	
-	long getCustomerId (String customerNo) {
+	long getCustomerId (long customerId) {
 		EntityManager entityManager = JPAEntityManagerFactory.getEntityManagerFactory().createEntityManager();
 		
-		TypedQuery<Customer> query = entityManager.createQuery("SELECT c FROM Customer c WHERE c.customerNo = :customerNo", Customer.class);
-		query.setParameter("customerNo", customerNo);
+		TypedQuery<Customer> query = entityManager.createQuery("SELECT c FROM Customer c WHERE c.customerId = :customerId", Customer.class);
+		query.setParameter("customerId", customerId);
 		
 		try {
 			Customer c = query.getSingleResult();

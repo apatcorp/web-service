@@ -27,13 +27,13 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String customerNo = request.getParameter("Logout");
+		String customerId = request.getParameter("Logout");
 		
 		HttpSession session = request.getSession(false);
 		
 		if (session != null) {
-			if (session.getAttribute("C" + customerNo) != null) {
-				session.setAttribute("C" + customerNo, null);
+			if (session.getAttribute("C" + customerId) != null) {
+				session.setAttribute("C" + customerId, null);
 			}
 			session.invalidate();
 		}

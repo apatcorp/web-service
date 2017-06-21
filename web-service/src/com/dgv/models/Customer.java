@@ -24,7 +24,7 @@ public class Customer implements Serializable {
 	private String name;
 	private String location;
 	private String address;
-	private String postCode;
+	private String postcode;
 	private String telNo;
 	private String contactPerson;
 	@OneToMany(mappedBy = "customer", cascade = PERSIST)
@@ -62,12 +62,13 @@ public class Customer implements Serializable {
 		this.address = param;
 	}
 
-	public String getPostCode() {
-		return postCode;
+
+	public String getPostcode() {
+		return postcode;
 	}
 
-	public void setPostCode(String param) {
-		this.postCode = param;
+	public void setPostcode(String postcode) {
+		this.postcode = postcode;
 	}
 
 	public String getTelNo() {
