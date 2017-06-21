@@ -34,7 +34,7 @@ public class Test {
 	
 	static Customer createCustomerEntity () {
 		Customer customer = new Customer();
-		customer.setCustomerNo("10090000");
+		customer.setCustomerId(10090000);
 		customer.setName("Berliner Volksbank");
 		customer.setLocation("Berlin");
 		customer.setAddress("Kurfürstendamm 112");

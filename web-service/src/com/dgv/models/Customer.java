@@ -2,10 +2,10 @@ package com.dgv.models;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import static javax.persistence.GenerationType.IDENTITY;
 import com.dgv.models.HAProject;
 import java.util.Collection;
 import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.GenerationType.TABLE;
 
 @Entity
 @Table(name = "CUSTOMER")
@@ -17,11 +17,11 @@ public class Customer implements Serializable {
 	}
 
 	@Id
-	@Column(name = "CUSTOMER_ID")
-	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "CUSTOMER_ID", nullable = false)
+	@GeneratedValue(strategy = TABLE, generator = "tab")
+	@TableGenerator(name = "tab")
 	private long customerId;
 	private String name;
-	private String customerNo;
 	private String location;
 	private String address;
 	private String postCode;
