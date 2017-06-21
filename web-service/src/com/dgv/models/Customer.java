@@ -46,14 +46,6 @@ public class Customer implements Serializable {
 		this.name = param;
 	}
 
-	public String getCustomerNo() {
-		return customerNo;
-	}
-
-	public void setCustomerNo(String param) {
-		this.customerNo = param;
-	}
-
 	public String getLocation() {
 		return location;
 	}
